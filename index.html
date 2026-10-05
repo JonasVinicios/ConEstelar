@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ConEstelar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="sky" aria-hidden="true">
+        <div class="stars stars--far"></div>
+        <div class="stars stars--near"></div>
+        <div class="nebula"></div>
+    </div>
+
+    <header class="topbar">
+        <a class="brand" href="#inicio" data-go-home>
+            <span class="brand__mark" aria-hidden="true">
+                <svg viewBox="0 0 32 32" fill="none">
+                    <circle cx="16" cy="16" r="15" stroke="currentColor" stroke-opacity="0.35"/>
+                    <path d="M16 7.5l1.15 4.4 4.6.15-3.65 2.85 1.3 4.4L16 16.9l-3.4 2.4 1.3-4.4-3.65-2.85 4.6-.15L16 7.5z" fill="currentColor"/>
+                </svg>
+            </span>
+            <span>ConEstelar</span>
+        </a>
+
+        <form class="search" id="search-form" role="search">
+            <label class="sr-only" for="search-input">Pesquisar constelação</label>
+            <span class="search__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                    <circle cx="11" cy="11" r="6.5"/>
+                    <path d="M16 16.5L20 20.5"/>
+                </svg>
+            </span>
+            <input id="search-input" type="search" name="q" placeholder="Pesquisar constelação" autocomplete="off">
+            <button class="search__go" type="submit" aria-label="Buscar">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                    <path d="M5 12h14M13 6l6 6-6 6"/>
+                </svg>
+            </button>
+        </form>
+    </header>
+
+    <main>
+        <section class="hero" id="inicio" data-view="home">
+            <p class="eyebrow">
+                <span class="eyebrow__line"></span>
+                Atlas celeste interativo
+            </p>
+
+            <h1 class="hero__title">
+                Olhe para cima.<br>
+                <em>Encontre seu lugar</em><br>
+                nas estrelas.
+            </h1>
+
+            <p class="hero__lead">
+                Uma viagem pelo céu noturno para descobrir as histórias,<br>
+                formas e mistérios que vivem acima de nós.
+            </p>
+
+            <button class="cta" type="button" data-explore="pegasus">
+                Explorar Pegasus
+                <span aria-hidden="true">→</span>
+            </button>
+
+            <hr class="rule">
+
+            <section class="about">
+                <p class="about__kicker">
+                    <span class="about__icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+                            <path d="M4 19l7-7 3 3 6-8"/>
+                            <circle cx="8.5" cy="8.5" r="2"/>
+                        </svg>
+                    </span>
+                    Sobre o projeto
+                </p>
+
+                <div class="about__grid">
+                    <h2 class="about__title">
+                        O universo sempre esteve<br>
+                        mais perto do que parece.
+                    </h2>
+                    <p class="about__text">
+                        O ConEstelar nasceu para transformar curiosidade em
+                        contemplação. Aqui, cada constelação é um convite para
+                        desacelerar, aprender e perceber que também fazemos
+                        parte de algo imenso.
+                    </p>
+                </div>
+            </section>
+
+            <svg class="home-constellation" viewBox="0 0 180 140" aria-hidden="true">
+                <g stroke="rgba(232,224,210,0.35)" stroke-width="0.8" fill="none">
+                    <path d="M40 110 L90 110 L90 60 L65 35 L40 60 Z"/>
+                    <path d="M90 70 L130 50"/>
+                </g>
+                <g fill="#f4eee4">
+                    <circle cx="40" cy="110" r="2.2"/>
+                    <circle cx="90" cy="110" r="1.8"/>
+                    <circle cx="90" cy="60" r="2.4"/>
+                    <circle cx="65" cy="35" r="2"/>
+                    <circle cx="40" cy="60" r="1.6"/>
+                    <circle cx="130" cy="50" r="2.1"/>
+                </g>
+            </svg>
+        </section>
+
+        <section class="result" id="resultado" data-view="result" hidden>
+            <div class="result__copy">
+                <p class="eyebrow">
+                    <span class="eyebrow__line"></span>
+                    Constelação encontrada
+                </p>
+                <h1 class="result__name" id="constellation-name">Pegasus</h1>
+                <p class="result__desc" id="constellation-desc"></p>
+            </div>
+
+            <figure class="sky-map">
+                <div class="sky-map__ring">
+                    <p class="sky-map__label" id="map-label">Pegasus</p>
+                    <svg class="sky-map__drawing" id="map-drawing" viewBox="0 0 320 320" aria-hidden="true"></svg>
+                    <p class="sky-map__caption">
+                        Mapa celeste<br>
+                        Hemisfério norte
+                    </p>
+                </div>
+            </figure>
+
+            <dl class="stats" id="constellation-stats"></dl>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>ConEstelar / 2026</p>
+        <p>Feito para quem ainda olha para o céu</p>
+    </footer>
+
+    <script src="code.js"></script>
+</body>
+</html>
